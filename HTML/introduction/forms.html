@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Forms</title>
+    </head>
+    <body>
+        <h1>Forms exercises</h1>
+        <div>
+            <!-- action contains the URL where we want to submit the form data-->
+            <!-- method indicates which type of HTTP request we make, this can be "get"
+                for non-sensible data, and "post" for sensible and private data not seen in the URL -->
+            <form class="" action="https://www.google.it" method="get">
+
+                <!-- the attribute has a identifier name to be passed to the backend-->
+                <label for="_name">Name:</label>
+                <input type="text" name="text" value="" placeholder="name" id="_name"> <br>
+                <label for="_psw">Password:</label>
+                <input type="password" name="passw" value=""  placeholder="password" id="_psw" required> <br>
+                <input type="color" name="color" value=""  placeholder="color"> <br>
+                <input type="email" name="email" value=""  placeholder="email" required> <br>
+                <input type="submit" name="" value="Submit">
+
+            </form>
+
+            <hr>
+
+            <form class="" action="https://www.google.it" method="get">
+                <h4>Write something here...</h4>
+                <textarea name="text_area" rows="15" cols="50"></textarea><br>
+                <input type="submit" name="" value="Submit">
+            </form>
+
+            <hr>
+
+            <form class="" action="https://www.google.it" method="get">
+                <!-- To male mutual exclusive radio buttons they have to have the same name -->
+                <h4>Gender</h4>
+                <label for="_male">Male</label>
+                <input id="_male" type="radio" name="gender" value="Male">
+                <label for="_female">Female</label>
+                <input id="_female" type="radio" name="gender" value="Female">
+                <br>
+
+                <h4>Specialization</h4>
+                <select class="" name="Specialization">
+                    <option value="backend">Backend</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="fullstack">Full stack</option>
+                </select>
+                
+                <br>
+                <input type="submit" name="" value="Submit">
+            </form>
+
+        </div>
+    </body>
+</html>
