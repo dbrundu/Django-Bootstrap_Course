@@ -1,1 +1,1 @@
-# Django and Bootstrap Course - collection of exercises
+# Udemy Courses - collection of exercises
