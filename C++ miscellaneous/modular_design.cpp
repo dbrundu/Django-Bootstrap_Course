@@ -40,18 +40,20 @@ public:
  */
 class ConcreteModuleA : public Module
 {
+
 public:
-  ~ConcreteModuleA() {}
+
+    ~ConcreteModuleA() {}
   
-    virtual void init(){
+    void init() override {
         std::cout << "Init A" << std::endl;    
     }
     
-    virtual void run(){
+    void run() override {
         std::cout << "Run A" << std::endl;    
     }
     
-    virtual void finalize(){
+    void finalize() override {
         std::cout << "Finalize A" << std::endl;    
     }
 
@@ -64,18 +66,20 @@ public:
  */
 class ConcreteModuleB : public Module
 {
+
 public:
-  ~ConcreteModuleB() {}
+   
+    ~ConcreteModuleB() {}
   
-    virtual void init(){
+    void init() override {
         std::cout << "Init B" << std::endl;    
     }
     
-    virtual void run(){
+    void run() override {
         std::cout << "Run B" << std::endl;    
     }
     
-    virtual void finalize(){
+    void finalize() override {
         std::cout << "Finalize B" << std::endl;    
     }
 
@@ -88,18 +92,20 @@ public:
  */
 class ConcreteModuleC : public Module
 {
+
 public:
-  ~ConcreteModuleC() {}
+    
+    ~ConcreteModuleC() {}
   
-    virtual void init(){
+    void init() override {
         std::cout << "Init C" << std::endl;    
     }
     
-    virtual void run(){
+    void run() override {
         std::cout << "Run C" << std::endl;    
     }
     
-    virtual void finalize(){
+    void finalize() override {
         std::cout << "Finalize C" << std::endl;    
     }
 
@@ -116,54 +122,55 @@ public:
  */
 class ModuleManager
 {
+
 private:
-  std::vector<Module*> modules;
+    
+    std::vector<Module*> modules;
 
   
- Module* createmodule(int selector) 
-  {
-    
-    if(selector<0 || selector >2) {
-        std::cout << "Error" << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-    
-    switch ( selector )
+    Module* createmodule(int selector) 
     {
-        case 0:
-            return new ConcreteModuleA() ;
-            break;
-        case 1:
-             return new ConcreteModuleB() ;
-            break;
-        case 2:
-             return new ConcreteModuleC() ;
-            break;
-        default:
-            return new ConcreteModuleA() ;;
+    
+        if(selector<0 || selector >2) {
+            std::cout << "Error" << std::endl;
+            std::exit(EXIT_FAILURE);
+        }
+    
+        switch ( selector )
+        {
+            case 0:
+                return new ConcreteModuleA() ;
+                break;
+            case 1:
+                 return new ConcreteModuleB() ;
+                break;
+            case 2:
+                 return new ConcreteModuleC() ;
+                break;
+            default:
+                return new ConcreteModuleA() ;;
+        }
     }
-  }
   
   
   
 public:
 
- template<size_t N>
- void CreateModules(std::array<bool, N> some_config){
+    template<size_t N>
+    void CreateModules(std::array<bool, N> some_config){
      
-     for(size_t i=0; i<N; ++i){
-        if(some_config[i]) 
-            modules.push_back( createmodule(i) );    
-     } 
-     
- }
+         for(size_t i=0; i<N; ++i)
+             if(some_config[i]) 
+                 modules.push_back( createmodule(i) );    
+         
+    }
   
   
- void Run(double some_input) 
-  {
-    for(auto m : modules)
-        m->run();
-  }
+    void Run(double some_input) 
+    {
+        for(auto m : modules)
+            m->run();
+    }
 
 };
 
@@ -172,7 +179,6 @@ public:
 
 int main()
 {
-    
   // Configuration ==> runtime variables
   // Instantiate A and C modules only
   std::array<bool, 3> some_config = {true, false, true}; 
