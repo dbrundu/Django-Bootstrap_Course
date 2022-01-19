@@ -142,13 +142,16 @@ private:
                 return new ConcreteModuleA() ;
                 break;
             case 1:
-                 return new ConcreteModuleB() ;
+                return new ConcreteModuleB() ;
                 break;
             case 2:
-                 return new ConcreteModuleC() ;
+                return new ConcreteModuleC() ;
                 break;
             default:
-                return new ConcreteModuleA() ;;
+                {
+                  std::cout << "Error" << std::endl;
+                  std::exit(EXIT_FAILURE);    
+                };
         }
     }
   
