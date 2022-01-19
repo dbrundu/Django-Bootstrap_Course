@@ -130,12 +130,7 @@ private:
   
     Module* createmodule(int selector) 
     {
-    
-        if(selector<0 || selector >2) {
-            std::cout << "Error" << std::endl;
-            std::exit(EXIT_FAILURE);
-        }
-    
+ 
         switch ( selector )
         {
             case 0:
